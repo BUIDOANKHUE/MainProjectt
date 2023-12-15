@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Spring Security</title>
+</head>
+
+<body>
+    <h2>Spring Security</h2>
+    <ul th:object="${#authentication.principal}">
+        <li>Username: <b th:text="*{username}"></b></li>
+        <li>Roles: <b th:text="*{authorities}"></b></li>
+    </ul>
+    <a href="/security/logout">Sign Out</a>
+</body>
+
+</html>

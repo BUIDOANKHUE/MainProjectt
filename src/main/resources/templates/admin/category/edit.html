@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+th:replace="~{/admin/shared/layout::dynamic(~{::title},~{::main})}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <title th:fragment="title">Sản phẩm</title>
+</head>
+<body id="page-top">
+
+    
+    	<div th:fragment="main">
+    		<h1 class="h3 mb-2 text-gray-800">Quản lý sản phẩm</h1>
+                	<div class="card">
+                	
+                	<div class="card mb-3" >
+					  <div class="row g-0">
+					  <div class="col-md-4">
+					      <img th:src="@{|/assets/img/All/${item.photo}|}" width="100%" class="img-fluid rounded-start" alt="...">
+					    </div>
+					    <div class="col-md-8">
+					      <div class="card-body">
+					        <form action="/admin/updateCa" method="post" enctype="multipart/form-data">
+							  
+							    <div class="form-group ">
+							      <label for="inputEmail4">Id</label>
+							      <input type="text" class="form-control" id="inputEmail4" th:field="${item.id}"  readonly placeholder="Auto Number">
+							    </div>
+							    <div class="form-group">
+							      <label for="inputPassword4">Name</label>
+							      <input ng-model="form.name" type="text" th:field="${item.name}" class="form-control" required  placeholder="Name">
+							    </div>
+							  	 <input type="file" name="file" style=" margin-top: 5px;">
+							   	 <input th:field="${item.photo}" type="hidden"/>
+							  
+							  </div>
+							 
+							      
+							  
+							  
+					            <button class="btn btn-primary" >Update</button>
+					            
+					            
+							</form>
+							</div>
+							
+							
+					    </div>
+					  </div>
+					</div>
+                	
+                	</div>    
+				
+                    <!-- DataTales Example -->
+                  
+		</div>
+    
+
+     
+    
+</body>
+
+</html>

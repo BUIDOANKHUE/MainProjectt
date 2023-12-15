@@ -1,0 +1,27 @@
+<main>
+    <h2>Doanh số bán hàng theo loại</h2>
+    <table border="1" style="width:100%">
+        <thead>
+            <tr>
+                <th>Tt</th>
+                <th>Loại</th>
+                <th>Doanh thu</th>
+                <th>Tổng số lượng</th>
+                <th>Giá thấp nhất</th>
+                <th>Giá cao nhất</th>
+                <th>Giá trung bình</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="rpt in list">
+                <td>{{$index+1}}</td>
+                <td>{{rpt.category}}</td>
+                <td>{{rpt.totalAmount}}</td>
+                <td>{{rpt.totalCount}}</td>
+                <td>{{rpt.minPrice}}</td>
+                <td>{{rpt.maxPrice}}</td>
+                <td>{{rpt.averagePrice}}</td>
+            </tr>
+        </tbody>
+    </table>
+</main>

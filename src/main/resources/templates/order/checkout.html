@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/shared/layout::dynamic(~{::title},~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:fragment="title">Thanh toán</title>
+</head>
+
+<body>
+
+<main th:fragment="main">
+   <div class="container" style="background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+    <h2 class="my-4" style="color: rgb(0, 0, 128); text-align: center;">Thanh toán</h2>
+    <form style="padding-bottom: 50px " th:object="${order}" action="/order/checkout" method="post">
+        <ul style="list-style: none; padding: 0;">
+            <li class="form-item" style="padding: 5px;">
+                <label for="username">Tên:</label><br>
+                <input id="username" th:field="*{account.username}" readonly style="border: 1px solid #000;border-radius: 4px;"/>
+            </li>
+            <li class="form-item" style="padding: 5px;">
+                <label for="address">Địa chỉ:</label>
+                <input id="address" th:field="*{address}" required style="border: 1px solid #000;border-radius: 4px; padding: 5px; width: 100%;"/>
+            </li>
+             <li class="form-item" style="padding: 5px;">
+                <label for="address">Số Điện Thoại Nhận Hàng:</label>
+                <input id="address" th:field="*{phonenumber}" required style="border: 1px solid #000;border-radius: 4px; padding: 5px; width: 100%;"/>
+            </li>
+            <li class="form-item" style="padding: 5px;">
+                <label for="createDate">Ngày đặt hàng:</label>
+                <input id="createDate" th:field="*{createDate}" readonly style="border: 1px solid #000;border-radius: 4px;"/>
+            </li>
+            <li class="form-item" style="text-align: center;">
+                <button type="submit" class="btn btn-success" style="background-color: green; color: white; padding: 10px 20px; border: none; cursor: pointer; font-weight: bold;">Thanh toán</button>
+            </li>
+            
+        </ul>
+    </form>
+    <div th:insert="~{/cart/view::table}"></div>
+</div>
+
+    
+</main>
+
+
+
+</body>
+
+</html>

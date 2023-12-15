@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/shared/layout::dynamic(~{::title},~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:fragment="title">Quản lý giỏ hàng</title>
+</head>
+
+<body>
+    <main th:fragment="main">
+    <div class="container">
+        <h2 class="my-4">Quản lý giỏ hàng</h2>
+        
+          
+        <form action="/cart/update" method="post">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>	
+                        <th>STT</th>
+                        <th>Tên</th>
+                         <th>Ảnh</th>
+                        <th>Giá tiền</th>
+                        <th>Số lượng</th>
+                        <th>Thành Tiền</th>
+                        <th>Điều Chỉnh</th>
+                           
+                    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item, rowStat: ${@cart.items}">
+                        <td th:text="${rowStat.count}"></td>
+                        <td th:text="${item.name}">Name</td>
+                        <td><img th:src="@{|/assets/img/All/${item.image}|}" id="img-cha"
+					style="background-color: white; width: 70px; height: 100px;"></td>
+                        <td th:text="${item.price}" >Price</td>
+                        <td>
+                            <input th:name="@{|qty_${item.id}|}" type="number" th:value="${item.quantity}"  max="500" min="1" class="form-control">
+                        </td>
+                        <td th:text="${item.amount}">Amount</td>
+                        <td>
+                            <a th:href="@{|/cart/remove/${item.id}|}" class="btn btn-danger">Xóa</a>
+                            
+                        </td>
+                       
+                    </tr>
+                 	
+                </tbody>
+              <strong>Tổng Tiền Đơn Hàng:   <a th:text="${@cart.totalAmount}"></a></strong>
+				
+            </table>
+            <div class="">
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
+                <a href="/cart/clear#featured-courses" class="btn btn-danger">Dọn giỏ hàng</a>
+                <a href="/order/checkout#featured-courses"  class="btn btn-success">Thanh toán</a>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+
+</html>

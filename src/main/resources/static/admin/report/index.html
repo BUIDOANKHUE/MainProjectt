@@ -1,0 +1,37 @@
+<main>
+    <h1 class="h3 mb-2 text-gray-800">Doanh số bán hàng theo loại</h1>
+    
+    
+    <div class="card shadow mb-4">
+                        
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                             <th>Tt</th>
+							                <th>Loại</th>
+							                <th>Doanh thu</th>
+							                <th>Tổng số lượng</th>
+							                <th>Giá thấp nhất</th>
+							                <th>Giá cao nhất</th>
+							                <th>Giá trung bình</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+							            <tr ng-repeat="rpt in list">
+							                <td>{{$index+1}}</td>
+							                <td>{{rpt.category}}</td>
+							                <td>{{rpt.totalAmount}}</td>
+							                <td>{{rpt.totalCount}}</td>
+							                <td>{{rpt.minPrice}}</td>
+							                <td>{{rpt.maxPrice}}</td>
+							                <td>{{rpt.averagePrice}}</td>
+							            </tr>
+							        </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+</main>

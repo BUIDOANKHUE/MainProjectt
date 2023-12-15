@@ -1,0 +1,117 @@
+<main>
+    
+    
+    
+    <h1 class="h3 mb-2 text-gray-800">Quản lý sản phẩm</h1>
+                	<div class="card">
+                	
+                	<div class="card mb-3" >
+					  <div class="row g-0">
+					    <div class="col-md-4">
+					      <img ng-src="{{'/assets/img/All/'+ form.image }}" style="padding-top: 50px;" class="img-fluid rounded-start" alt="...">
+					    </div>
+					    <input type="hidden" ng-model="form.headimage" >
+					    <div class="col-md-8">
+					      <div class="card-body">
+					        <form>
+							  <div class="form-row">
+							    <div class="form-group col-md-6">
+							      <label for="inputEmail4">Id</label>
+							      <input type="text" class="form-control" id="inputEmail4" ng-model="form.id" readonly placeholder="Auto Number">
+							    </div>
+							    <div class="form-group col-md-6">
+							      <label for="inputPassword4">Name</label>
+							      <input ng-model="form.name" type="text" class="form-control"  placeholder="Name">
+							    </div>
+							  </div>
+							  <div class="form-row">
+							    <div class="form-group col-md-6">
+							      <label for="inputEmail4">NXB</label>
+							      <input type="text" class="form-control" id="inputEmail4" ng-model="form.nxb"  placeholder="Nhà xuất bản">
+							    </div>
+							    <div class="form-group col-md-6">
+							      <label for="inputPassword4">Tác giả</label>
+							      <input ng-model="form.tg" type="text" class="form-control"  placeholder="Tác giả">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label for="inputAddress">Price</label>
+							    <input type="text" ng-model="form.price" class="form-control" id="inputAddress" placeholder="Price">
+							  </div>
+							  <div class="mb-3">
+								  <label for="exampleFormControlTextarea1" class="form-label">Giới thiệu</label>
+								  <textarea class="form-control" ng-model="form.gioithieu" id="exampleFormControlTextarea1" rows="3"></textarea>
+								</div>
+							   <div class="form-group">
+							    <label for="inputAddress">Available</label>
+							  <div class="form-check form-check-inline">
+								  <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"  ng-model="form.available" ng-value="true" checked>
+								  <label class="form-check-label" for="inlineRadio1">Yes</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" ng-model="form.available"  ng-value="false">
+								  <label class="form-check-label" for="inlineRadio2">No</label>
+								</div>
+							</div>
+							  <div class="form-row">
+							    <div class="form-group col-md-6">
+							      <label for="inputCity">Create date</label>
+							      <input type="text" ng-model="form.createDate" class="form-control" id="inputCity">
+							    	
+							    </div>
+							    <div class="form-group col-md-6">
+							      <label for="inputState">Category</label>
+							      <select id="inputState" ng-model="form.category.id" class="form-control">
+							        <option ng-repeat="c in categories" ng-value="c.id">{{c.name}}</option>
+							      </select>
+							    </div>
+							     
+							  </div>
+							 
+							      
+							  
+							  <button class="btn btn-primary" ng-click="create()">Create</button>
+					            <button class="btn btn-primary" ng-click="update()">Update</button>
+					            <button class="btn btn-primary" ng-click="delete(form.id)">Delete</button>
+					            <button class="btn btn-primary" ng-click="reset()">Reset</button>
+							</form>
+							</div>
+							
+							
+					    </div>
+					  </div>
+					</div>
+                	
+                	</div>    
+				
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                             <th>No</th>
+							                <th>Id</th>
+							                <th>Name</th>
+							                <th></th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+							            <tr ng-repeat="item in list">
+							                <td>{{$index+1}}</td>
+							                <td>{{item.id}}</td>
+							                <td>{{item.name}}</td>
+							                <td>
+							                    <a ng-click="edit(item.id)" href="">Edit</a> |
+							                    <a ng-click="delete(item.id)" href="">Delete</a>
+							                </td>
+							            </tr>
+							        </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+</main>

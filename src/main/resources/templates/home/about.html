@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title th:fragment="title">Giới thiệu</title>
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/assets/css/slicknav.css">
+<link rel="stylesheet" href="/assets/css/flaticon.css">
+<link rel="stylesheet" href="/assets/css/progressbar_barfiller.css">
+<link rel="stylesheet" href="/assets/css/gijgo.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/animated-headline.css">
+<link rel="stylesheet" href="/assets/css/magnific-popup.css">
+<link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/assets/css/themify-icons.css">
+<link rel="stylesheet" href="/assets/css/slick.css">
+<link rel="stylesheet" href="/assets/css/nice-select.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/assets/css/slicknav.css">
+<link rel="stylesheet" href="/assets/css/flaticon.css">
+<link rel="stylesheet" href="/assets/css/progressbar_barfiller.css">
+<link rel="stylesheet" href="/assets/css/gijgo.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/animated-headline.css">
+<link rel="stylesheet" href="/assets/css/magnific-popup.css">
+<link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/assets/css/themify-icons.css">
+<link rel="stylesheet" href="/assets/css/slick.css">
+<link rel="stylesheet" href="/assets/css/nice-select.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/acc.css">
+<script src="/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<!-- Jquery, Popper, Bootstrap -->
+<script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<!-- Jquery Mobile Menu -->
+<script src="/assets/js/jquery.slicknav.min.js"></script>
+
+<!-- Jquery Slick , Owl-Carousel Plugins -->
+<script src="/assets/js/owl.carousel.min.js"></script>
+<script src="/assets/js/slick.min.js"></script>
+<!-- One Page, Animated-HeadLin -->
+<script src="/assets/js/wow.min.js"></script>
+<script src="/assets/js/animated.headline.js"></script>
+<script src="/assets/js/jquery.magnific-popup.js"></script>
+
+<!-- Date Picker -->
+<script src="/assets/js/gijgo.min.js"></script>
+<!-- Nice-select, sticky -->
+<script src="/assets/js/jquery.nice-select.min.js"></script>
+<script src="/assets/js/jquery.sticky.js"></script>
+<!-- Progress -->
+<script src="/assets/js/jquery.barfiller.js"></script>
+
+<!-- counter , waypoint,Hover Direction -->
+<script src="/assets/js/jquery.counterup.min.js"></script>
+<script src="/assets/js/waypoints.min.js"></script>
+<script src="/assets/js/jquery.countdown.min.js"></script>
+<script src="/assets/js/hover-direction-snake.min.js"></script>
+
+<!-- contact js -->
+<script src="/assets/js/contact.js"></script>
+<script src="/assets/js/jquery.form.js"></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/mail-script.js"></script>
+<script src="/assets/js/jquery.ajaxchimp.min.js"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script src="/assets/js/plugins.js"></script>
+<script src="/assets/js/main.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<!-- Jquery, Popper, Bootstrap -->
+<script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<!-- Jquery Mobile Menu -->
+<script src="/assets/js/jquery.slicknav.min.js"></script>
+
+<!-- Video bg -->
+<script src="/assets/js/jquery.vide.js"></script>
+
+<!-- Jquery Slick , Owl-Carousel Plugins -->
+<script src="/assets/js/owl.carousel.min.js"></script>
+<script src="/assets/js/slick.min.js"></script>
+<!-- One Page, Animated-HeadLin -->
+<script src="/assets/js/wow.min.js"></script>
+<script src="/assets/js/animated.headline.js"></script>
+<script src="/assets/js/jquery.magnific-popup.js"></script>
+
+<!-- Date Picker -->
+<script src="/assets/js/gijgo.min.js"></script>
+<!-- Nice-select, sticky -->
+<script src="/assets/js/jquery.nice-select.min.js"></script>
+<script src="/assets/js/jquery.sticky.js"></script>
+<!-- Progress -->
+<script src="/assets/js/jquery.barfiller.js"></script>
+
+<!-- counter , waypoint,Hover Direction -->
+<script src="/assets/js/jquery.counterup.min.js"></script>
+<script src="/assets/js/waypoints.min.js"></script>
+<script src="/assets/js/jquery.countdown.min.js"></script>
+<script src="/assets/js/hover-direction-snake.min.js"></script>
+
+<!-- contact js -->
+<script src="/assets/js/contact.js"></script>
+<script src="/assets/js/jquery.form.js"></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/mail-script.js"></script>
+<script src="/assets/js/jquery.ajaxchimp.min.js"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script src="/assets/js/plugins.js"></script>
+<script src="/assets/js/main.js"></script>
+
+<!-- Thư viện Slick Carousel -->
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+.about-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	max-width: 1480px;
+	margin: 1rem auto;
+	width: 100%;
+}
+
+.about .heading {
+	text-align: center;
+	font-size: 4rem;
+	color: #333;
+	padding: 1rem;
+	background: rgba(255, 51, 153, .05);
+}
+
+.about .heading span {
+	color: var(--pink);
+}
+
+.about .row {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	padding: 2rem 0;
+	padding-bottom: 3rem;
+}
+
+.about .row .video-container {
+	flex: 1 1 40rem;
+	position: relative;
+}
+
+.about .row .video-container video {
+	width: 100%;
+	border: 1.5rem solid #fff;
+	border-radius: .5rem;
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+	height: 100%;
+	object-fit: cover;
+}
+
+.about .row .video-container h3 {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 3rem;
+	background: #fff;
+	width: 100%;
+	padding: 1rem 2rem;
+	text-align: center;
+	mix-blend-mode: screen;
+}
+
+.about .row .content {
+	flex: 1 1 40rem;
+}
+
+.about .row .content h3 {
+	font-size: 3rem;
+	color: #333;
+}
+
+.about .row .content p {
+	font-size: 1.5rem;
+	color: #999;
+	padding: .5rem 0;
+	padding-top: 1rem;
+	line-height: 1.5;
+}
+
+.box {
+	height: 30px;
+	display: flex;
+	cursor: pointer;
+	padding: 10px 15px;
+	border-radius: 30px;
+	align-items: center;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+	background: #fff;
+}
+
+.box:hover input, .box input:focus, .box input:not(:placeholder-shown) {
+	width: 200px;
+}
+
+.box input {
+	width: 0;
+	outline: none;
+	border: none;
+	font-weight: 500;
+	transition: 0.8s;
+	background: transparent;
+}
+
+.box .fas {
+	color: #6878FF;
+	font-size: 18px;
+}
+
+.box.active input {
+	width: 200px;
+}
+.icon-cart {
+	position: relative;
+}
+
+.icon-cart span {
+	position: absolute;
+	background-color: #A272FF;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	color: #E5E5E5;
+	bottom: 45%;
+	right: -20px;
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+	<header th:fragment="header">
+
+
+		<div class="header-area header-transparent">
+			<div class="main-header ">
+				<div class="header-bottom  header-sticky">
+					<div class="container-fluid">
+						<div class="row align-items-center">
+							<!-- Logo -->
+							<div class="col-xl-2 col-lg-2">
+
+								<div class="logo">
+									<a href="/"><img src="/assets/img/logo/huh.png" alt=""></a>
+								</div>
+							</div>
+							<div class="col-xl-10 col-lg-10">
+								<div
+									class="menu-wrapper d-flex align-items-center justify-content-end">
+									<!-- Main-menu -->
+									<div class="main-menu d-none d-lg-block">
+										<nav>
+											<ul id="navigation">
+												<li>
+													<form action="/product/search">
+														<div class="box">
+															<input type="text" name="keyword" th:value="${keyword}"
+																placeholder="Bạn muốn mua gì?"
+																 />
+															<i class="fas fa-search"></i>
+
+														</div>
+													</form>
+												</li>
+												<li class="active"><a href="/">Trang chủ</a></li>
+												<li><a href="/home/about#featured-courses"
+													onclick="scrollToFeaturedCourses()">Về chúng tôi</a></li>
+
+												<li><div class="icon-cart">
+												<a href="/cart/view#featured-courses" 
+													onclick="scrollToFeaturedCourses()">Giỏ hàng</a> 
+													<span th:text="${@cart.totalCount}">0</span>
+													 </div>
+													
+													</li>
+													
+													
+													
+
+												<li th:if="${#request.remoteUser}"><a href="#">Xin chào
+														<strong>[[${#request.remoteUser}]] </strong>
+												</a>
+													<ul class="submenu">
+
+														<li><a href="/account/edit-profile#featured-courses">Chỉnh sửa cá nhân</a></li>
+														<li><a href="/order/list">Lịch sử đặt</a></li>
+														<li><a href="/account/change-password">Đổi mật khẩu</a></li>
+														<li><a href="/security/logout">Thoát</a></li>
+														<li
+															th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+															<a href="/admin">Admin</a>
+														</li>
+													</ul>
+												<li th:unless="${#request.remoteUser}"
+													class="button-header margin-left"><a
+													href="/security/login/form" class="btn">Đăng nhập</a></li>
+
+												<li th:unless="${#request.remoteUser}" class="button-header">
+													<a href="/account/sign-up" class="btn btn3">Đăng ký</a>
+												</li>
+											</ul>
+										</nav>
+
+									</div>
+								</div>
+							</div>
+							<!-- Mobile Menu -->
+							<div class="col-12">
+								<div class="mobile_menu d-block d-lg-none"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<main>
+			<section class="slider-area slider-area2">
+				<div class="slider-active">
+					<!-- Single Slider -->
+					<div class="single-slider slider-height2">
+						<div class="container">
+							<div class="row">
+								<div class="col-xl-8 col-lg-11 col-md-12">
+									<div class="hero__caption hero__caption2">
+										<h1 data-animation="bounceIn" data-delay="0.2s">Về chúng tôi</h1>
+										<!-- breadcrumb Start-->
+										
+										<!-- breadcrumb End -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<div class="services-area">
+				<div class="container">
+					<div class="row justify-content-sm-center">
+						<div class="col-lg-4 col-md-6 col-sm-8">
+							<div class="single-services mb-30">
+								<div class="features-icon">
+									<img src="/assets/img/icon/icon1.svg" alt="">
+								</div>
+								<div class="features-caption">
+									<h3>Về mặt hàng</h3>
+									<p>Cập nhật nhiều loại sách mới, với giá cả cạnh tranh.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-8">
+							<div class="single-services mb-30">
+								<div class="features-icon">
+									<img src="/assets/img/icon/icon2.svg" alt="">
+								</div>
+								<div class="features-caption">
+									<h3>Về thông tin</h3>
+									<p>Tổng hợp nhiều loại sách với nhiều chủ đề khác nhau</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-8">
+							<div class="single-services mb-30">
+								<div class="features-icon">
+									<img src="/assets/img/icon/icon3.svg" alt="">
+								</div>
+								<div class="features-caption">
+									<h3>Về thời gian</h3>
+									<p>Tìm kiếm nhanh chóng, tối ưu hết mức, dễ dàng sử dụng</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</main>
+
+	</header>
+
+	<div class="about-container">
+		<section class="about" id="about2">
+			<h1 class="heading">
+				<span>Về chúng tôi</span>
+			</h1>
+			<div class="row">
+				<div class="video-container">
+					<video src="/assets/img/reading.mp4" loop autoplay muted></video>
+					<h3>Hãy đọc sách</h3>
+				</div>
+				<div class="content">
+					<h3>Hãy tin tưởng và chọn chúng tôi</h3>
+					<p>Chúng tôi có hầu hết tất cả các loại sách có mặt trên thị
+						trường với giá cả cực kì cạnh tranh</p>
+					<p>Hôm nay là một ngày thật tuyệt để đọc sách đúng không ?</p>
+					<a href="#" class="btn">Tin tưởng!</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="about" id="about1">
+			<h1 class="heading">
+				<span></span>
+			</h1>
+			<div class="row">
+
+				<div class="content">
+					<h3>Ngày thành lập</h3>
+					<p>1/10/2023</p>
+					<p>Vì là một nhà phối sách mới thành lập nên chúng tôi cũng mong được nhận đóng góp cũng như đánh giá của các bạn. Chúc bạn một ngày tốt lành </p>
+					<a href="#" class="btn">Uy tín tạo nên chất lượng</a>
+				</div>
+				<div class="video-container">
+					<video src="/assets/img/reading.mp4" loop autoplay muted></video>
+					<h3>Sách là tri thức của nhân loại</h3>
+				</div>
+			</div>
+		</section>
+	</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

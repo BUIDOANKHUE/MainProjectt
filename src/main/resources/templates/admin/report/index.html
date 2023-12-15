@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+th:replace="~{/admin/shared/layout::dynamic(~{::title},~{::main})}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <title th:fragment="title">Report</title>
+</head>
+<body id="page-top">
+
+    
+    	<div th:fragment="main">
+                   <h1 class="h3 mb-2 text-gray-800">Doanh số bán hàng theo loại</h1>
+    
+    
+    <div class="card shadow mb-4">
+                        
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                             <th>Tt</th>
+							                <th>Loại</th>
+							                <th>Doanh thu</th>
+							                <th>Tổng số lượng</th>
+							                <th>Giá thấp nhất</th>
+							                <th>Giá cao nhất</th>
+							                <th>Giá trung bình</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+							            <tr th:each="p,iterStat: ${report}">
+							                <td th:text="${iterStat.count}"></td>
+							                <td th:text="${p.category}"></td>
+							                <td th:text="${p.totalAmount}"></td>
+							                <td th:text="${p.totalCount}"></td>
+							                <td th:text="${p.minPrice}"></td>
+							               	<td th:text="${p.maxPrice}"></td>
+							                <td th:text="${p.averagePrice}"></td>
+							            </tr>
+							        </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+		</div>
+    
+
+     
+    
+</body>
+
+</html>

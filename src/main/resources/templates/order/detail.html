@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/shared/layout::dynamic(~{::title},~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:fragment="title">Chi tiết đơn hàng</title>
+</head>
+
+<body>
+<main th:fragment="main">
+    <div class="container">
+        <h2 class="my-4">Thông tin chung</h2>
+        <ul>
+            <li>Id: <b th:text="${order.id}"></b></li>
+            <li>Shipping Address: <b th:text="${order.address}"></b></li>
+            <li>Created Date: <b th:text="${order.createDate}"></b></li>
+        </ul>
+        
+        <h2 class="my-4">Chi tiết đơn hàng</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Số Thứ Tự</th>
+                        <th>Id</th>
+                        <th>Tên</th>
+                        <th>Đơn Giá</th>
+                        <th>Ảnh</th>
+                        <th>Số Lượng</th>
+                        <th>Tổng tiền</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="d, s: ${order.orderDetails}">
+                        <td th:text="${s.count}"></td>
+                        <td th:text="${d.product.id}"></td>
+                        <td th:text="${d.product.name}"></td>
+                        <td th:text="${d.price}"></td>
+                                                <td >
+                        <img  style="width:50px;" th:src="@{|/assets/img/All/${d.product.image}|}">
+                        </td>
+                        <td th:name="@{|qty_${d.product.id}|}" th:text="${d.quantity}">
+							
+                        </td>
+                        <td th:text="${d.price * d.quantity}"></td>
+                        
+                        
+                    </tr>
+                    
+                </tbody>
+                
+            </table>
+            <h2 class="my-4">Tổng Tiền Đơn Hàng</h2>
+			<p>Tổng tiền: <b th:text="${totalAmount}"></b></p>
+        </div>
+    </div>
+</main>
+</body>
+
+</html>

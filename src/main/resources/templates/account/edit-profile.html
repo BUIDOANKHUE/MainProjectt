@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/shared/layout::dynamic(~{::title},~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:fragment="title">Cập nhật tài khoản</title>
+style="max-width: 100%;height: auto;margin-top: 10px;"
+</head>
+
+<body>
+    <main th:fragment="main">
+    <div class="account-update" style="max-width: 400px;margin: auto;padding: 20px;border: 1px solid #ccc;border-radius: 8px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2>Cập nhật tài khoản</h2>
+        <form action="/account/edit-profile" method="post" enctype="multipart/form-data">
+            <div th:if="${message}" class="message" style="margin-top: 15px;padding: 10px;background-color: #f2f2f2;color: #333;border: 1px solid #ddd;border-radius: 4px;">
+                <p th:text="${message}"></p>
+            </div>
+            <ul th:object="${account}">
+                <li>
+                    <label for="username" style="display: block;margin-bottom: 8px;color: #555;">Tên đăng nhập:</label>
+                    <input id="username" th:field="*{username}" required readonly style="width: 100%;padding: 8px;margin-bottom: 12px;box-sizing: border-box;">
+                </li>
+                <li>
+                    <label for="fullname" style="display: block;margin-bottom: 8px;color: #555;">Tên đầy đủ:</label>
+                    <input id="fullname" th:field="*{fullname}" required style="width: 100%;padding: 8px;margin-bottom: 12px;box-sizing: border-box;">
+                </li>
+                <li>
+                    <label for="email" style="display: block;margin-bottom: 8px;color: #555;">Email:</label>
+                    <input id="email" th:field="*{email}" required style="width: 100%;padding: 8px;margin-bottom: 12px;box-sizing: border-box;" type="email">
+                </li>
+                <li>
+                    <label for="photo" style="display: block;margin-bottom: 8px;color: #555;">Hình:</label>
+                    <input type="file" name="file" style=" margin-top: 5px;">
+                </li>
+                <li>
+                    <button type="submit" style="background-color: #4CAF50;color: #fff;padding: 10px;border: none;border-radius: 4px;cursor: pointer;">Update</button>
+                </li>
+                <li>
+                    <input th:field="*{password}" type="hidden" style="width: 100%;padding: 8px;margin-bottom: 12px;box-sizing: border-box;">
+                </li>
+                	<input th:field="*{photo}" type="hidden"/>
+                <img alt="" th:src="@{|/assets/img/All/*{photo}|}" style="max-width: 100%;height: auto;margin-top: 10px;">
+                
+            </ul>
+        </form>
+    </div>
+</main>
+</body>
+
+</html>

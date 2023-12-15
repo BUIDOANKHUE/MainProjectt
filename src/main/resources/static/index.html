@@ -1,0 +1,23 @@
+	<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+<body>
+
+    <main ng-app="estore">
+        <div ng-include="'/shared/menu.html'"></div>
+        <ng-view/>
+    </main>
+
+    <link rel="stylesheet" href="shared/estore.css">
+    <script src="shared/estore.js"></script>
+
+    <script src="home/home-ctrl.js"></script>
+    <script src="category/category-ctrl.js"></script>
+    <script src="product/product-ctrl.js"></script>
+    <script src="report/report-ctrl.js"></script>
+    <script src="authority/authority-ctrl.js"></script>
+</body>
+
+</html>

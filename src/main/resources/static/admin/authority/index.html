@@ -1,0 +1,19 @@
+<main>
+    <h2>Phân quyền sử dụng</h2>
+    <table border="1" style="width:100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th ng-repeat="r in roles">{{r.id}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="m in masters">
+                <th>{{m.username}}</th>
+                <th ng-repeat="r in roles">
+                    <input type="checkbox" ng-checked="granted(r, m)" ng-click="change(r, m)">
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</main>

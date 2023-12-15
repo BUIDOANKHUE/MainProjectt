@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    .notification {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        display: none;
+        animation: fadeOut 2s forwards;
+    }
+
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            display: none;
+        }
+    }
+</style>
+<script>function showNotification(message) {
+    var notification = document.getElementById('notification');
+    notification.innerHTML = message;
+    notification.style.display = 'block';
+
+    setTimeout(function () {
+        notification.style.display = 'none';
+    }, 2000); // 2 seconds
+}</script>
+</head>
+<body>
+<div id="notification" class="notification">
+    Đặt hàng thành công
+</div>
+
+</body>
+</html>

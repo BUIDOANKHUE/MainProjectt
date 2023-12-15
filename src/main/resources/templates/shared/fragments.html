@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" class="no-js" lang="zxx">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="site.webmanifest">
+
+<title th:fragment="title">Fragments</title>
+
+
+</head>
+
+<body>
+	<header th:fragment="header">
+
+
+		<div class="header-area header-transparent">
+			<div class="main-header ">
+				<div class="header-bottom  header-sticky ">
+					<div class="container-fluid">
+						<div class="row align-items-center">
+							<!-- Logo -->
+							<div class="col-xl-2 col-lg-2">
+
+								<div class="logo">
+									<a href="/"><img src="/assets/img/logo/huh.png" alt=""></a>
+								</div>
+							</div>
+							<div class="col-xl-10 col-lg-10">
+								<div
+									class="menu-wrapper d-flex align-items-center justify-content-end">
+									<!-- Main-menu -->
+									<div class="main-menu d-none d-lg-block">
+										<nav>
+											<ul id="navigation">
+												<li>
+													<form action="/product/search">
+														<div class="box">
+															<input type="text" name="keyword" th:value="${keyword}"
+																placeholder="Bạn muốn tìm gì?" />
+															<i class="fas fa-search"></i>
+
+														</div>
+													</form>
+												</li>
+
+
+												<li class="active"><a href="/">Trang chủ</a></li>
+												<li><a href="/home/about#featured-courses"
+													onclick="scrollToFeaturedCourses()">Về chúng tôi</a></li>
+
+												<li>
+												<div class="icon-cart">
+												<a href="/cart/view#featured-courses" 
+													onclick="scrollToFeaturedCourses()">Giỏ hàng</a> 
+													<span th:text="${@cart.totalCount}">0</span>
+													 </div>
+													</li>
+
+
+
+												<li th:if="${#request.remoteUser}"><a href="#">Xin
+														chào <strong>[[${#request.remoteUser}]] </strong>
+												</a>
+													<ul class="submenu">
+
+														<li><a href="/account/edit-profile#featured-courses">Chỉnh
+																sửa cá nhân</a></li>
+														<li><a href="/order/list">Lịch sử đặt</a></li>
+														<li><a href="/account/change-password">Đổi mật
+																khẩu</a></li>
+														<li><a href="/security/logout">Thoát</a></li>
+														<li
+															th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+															<a href="/admin">Admin</a>
+														</li>
+													</ul>
+												<li th:unless="${#request.remoteUser}"
+													class="button-header margin-left"><a
+													href="/security/login/form" class="btn">Đăng nhập</a></li>
+
+												<li th:unless="${#request.remoteUser}" class="button-header">
+													<a href="/account/sign-up" class="btn btn3">Đăng ký</a>
+												</li>
+											</ul>
+
+										</nav>
+
+									</div>
+								</div>
+							</div>
+							<!-- Mobile Menu -->
+							<div class="col-12">
+								<div class="mobile_menu d-block d-lg-none"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<main>
+			<section class="slider-area ">
+				<div class="slider-active">
+					<div class="single-slider slider-height d-flex align-items-center">
+						<div class="container">
+							<div class="row">
+								<div class="col-xl-6 col-lg-7 col-md-12">
+									<div class="hero__caption">
+										<h1 data-animation="fadeInLeft" data-delay="0.2s">
+											Chào mừng<br> quý khách
+										</h1>
+										<p data-animation="fadeInLeft" data-delay="0.4s">Những gì
+											bạn cần cho tủ sách của bạn đều được bán ở đây.</p>
+										<a class="btn hero-btn" data-animation="fadeInLeft"
+											data-delay="0.7s" href="/#featured-courses"
+											onclick="scrollToFeaturedCourses()">MUA NGAY</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="services-area">
+				<div class="container">
+					<div class="row justify-content-sm-center">
+						<div class="col-lg-4 col-md-6 col-sm-8">
+							<div class="single-services mb-30">
+								<div class="features-icon">
+									<img src="/assets/img/icon/icon1.svg" alt="">
+								</div>
+								<div class="features-caption">
+									<h3>Về mặt hàng</h3>
+									<p>Cập nhật nhiều loại sách mới, với giá cả cạnh tranh.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-8">
+							<div class="single-services mb-30">
+								<div class="features-icon">
+									<img src="/assets/img/icon/icon2.svg" alt="">
+								</div>
+								<div class="features-caption">
+									<h3>Về thông tin</h3>
+									<p>Tổng hợp nhiều loại sách với nhiều chủ đề khác nhau</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-8">
+							<div class="single-services mb-30">
+								<div class="features-icon">
+									<img src="/assets/img/icon/icon3.svg" alt="">
+								</div>
+								<div class="features-caption">
+									<h3>Về thời gian</h3>
+									<p>Tìm kiếm nhanh chóng, tối ưu hết mức, dễ dàng sử dụng</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+	</header>
+
+
+
+
+
+
+
+	<nav th:fragment="account">
+
+		<footer>
+			<div class="footer-wrappper footer-bg">
+				<div class="footer-area footer-padding">
+					<div class="container">
+						<div class="row justify-content-between">
+							<div class="col-xl-4 col-lg-5 col-md-4 col-sm-6">
+								<div class="single-footer-caption mb-50">
+									<div class="single-footer-caption mb-30">
+										<div class="footer-logo mb-25">
+											<a href="index.html"><img src="/assets/img/logo/huh.png"
+												alt=""></a>
+										</div>
+										<div class="footer-tittle">
+											<div class="footer-pera">
+												<p>Liên hệ với chúng tôi thông qua một trong các phương
+													thức dưới đây.</p>
+											</div>
+										</div>
+										<div class="footer-social">
+											<a href="#"><i class="fab fa-twitter"></i></a> <a
+												href="https://www.facebook.com/nnha03"><i
+												class="fab fa-facebook-f"></i></a> <a href="#"><i
+												class="fab fa-pinterest-p"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
+								<div class="single-footer-caption mb-50">
+									<div class="footer-tittle">
+										<h4>Our solutions</h4>
+										<ul>
+											<li><a href="#">Design & creatives</a></li>
+											<li><a href="#">Telecommunication</a></li>
+											<li><a href="#">Restaurant</a></li>
+											<li><a href="#">Programing</a></li>
+											<li><a href="#">Architecture</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
+								<div class="single-footer-caption mb-50">
+									<div class="footer-tittle">
+										<h4>Support</h4>
+										<ul>
+											<li><a href="#">Design & creatives</a></li>
+											<li><a href="#">Telecommunication</a></li>
+											<li><a href="#">Restaurant</a></li>
+											<li><a href="#">Programing</a></li>
+											<li><a href="#">Architecture</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<div class="single-footer-caption mb-50">
+									<div class="footer-tittle">
+										<h4>Company</h4>
+										<ul>
+											<li><a href="#">Design & creatives</a></li>
+											<li><a href="#">Telecommunication</a></li>
+											<li><a href="#">Restaurant</a></li>
+											<li><a href="#">Programing</a></li>
+											<li><a href="#">Architecture</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom-area">
+					<div class="container">
+						<div class="footer-border">
+							<div class="row d-flex align-items-center">
+								<div class="col-xl-12 ">
+									<div class="footer-copy-right text-center">
+										<p>
+											HPBOOK &copy;
+											<script>
+												document.write(new Date()
+														.getFullYear());
+											</script>
+											dự án tốt nghiệp || thuộc HPBOOK
+
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<div id="back-top">
+			<a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+		</div>
+	</nav>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

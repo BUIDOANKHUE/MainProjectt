@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/admin/shared/layout::dynamic(~{::title},~{::main})}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title th:fragment="title">Trang chủ</title>
+</head>
+<body id="page-top">
+
+<div th:fragment="main">
+
+
+<form th:action="@{/bill}" method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Tìm Kiếm Đơn Hàng(Số Điện Thoại)" name="phoneNumber" aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Tìm kiếm</button>
+        </div>
+    </div>
+</form>
+			
+
+    <table class="table">
+         <thead>
+        <tr>
+            <th><strong>ID</strong></th>
+            <th><strong>Tên Người Đặt</strong></th>
+            <th><strong>Địa chỉ</strong></th>
+            <th><strong>Số Điện Thoại</strong></th>
+            <th><strong>Ngày Tạo</strong></th>
+            <th><strong>Trạng Thái</strong></th>
+            <th><strong>Chi tiết</strong></th>
+            <th></th>
+        </tr>
+    </thead>
+        <tbody>
+    <th:block th:if="${orderPage != null}" th:each="o : ${orderPage.content}">
+        <tr>
+            <td><strong th:text="${o.id}"></strong></td>
+            <td><strong th:text="${o.account.fullname}"></strong></td>
+            <td><strong th:text="${o.address}"></strong></td>
+            <td><strong th:text="${o.phonenumber}"></strong></td>
+            <td><strong th:text="${#dates.format(o.createDate, 'MM/dd/yyyy')}"></strong></td>
+            <td>
+         
+                <form th:action="@{/bill/{id}(id=${o.id})}" method="post">
+                    <select class="form-control" onchange="this.form.submit()" name="stt"
+                            th:style="${o.status == 3} ? 'color: green;' : ''"
+                            th:disabled="${o.status == 3}">
+                        <option value="0" th:selected="${o.status == 0}"
+                                th:style="${o.status == 0} ? 'color: orange;' : ''"><strong>Đang Xử Lý</strong>
+                        </option>
+                        <option value="1" th:selected="${o.status == 1}"
+                                th:style="${o.status == 1} ? 'color: navy;' : ''"><strong>Đang Lấy Hàng</strong>
+                        </option>
+                        <option value="2" th:selected="${o.status == 2}"
+                                th:style="${o.status == 2} ? 'color: blue;' : ''"><strong>Đang Giao Hàng</strong>
+                        </option>
+                        <option value="3" th:selected="${o.status == 3}"
+                                th:disabled="${o.status < 2}"
+                                th:style="${o.status == 3} ? 'color: lime;' : ''"><strong>Đã Giao Hàng</strong>
+                        </option>
+                    </select>
+                </form>
+            </td>
+            <td>            <td><a th:href="@{|/bill/detail/${o.id}|}" class="btn btn-primary">Xem chi tiết</a></td>
+            </td>
+        </tr>
+        
+    </th:block>
+</tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div th:if="${orderPage.totalPages > 1}">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li th:if="${orderPage.hasPrevious()}"
+                class="page-item">
+                <a class="page-link" th:href="@{/bill(page=${orderPage.number - 1})}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li th:each="pageNumber : ${#numbers.sequence(1, orderPage.totalPages)}"
+                th:class="${orderPage.number + 1 == pageNumber} ? 'page-item active' : 'page-item'">
+                <a class="page-link" th:href="@{/bill(page=${pageNumber})}" th:text="${pageNumber}"></a>
+            </li>
+            <li th:if="${orderPage.hasNext()}"
+                class="page-item">
+                <a class="page-link" th:href="@{/bill(page=${orderPage.number + 1})}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+</div>
+
+</body>
+</html>

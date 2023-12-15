@@ -1,0 +1,46 @@
+<main>
+    <h2>Quản lý sản phẩm</h2>
+    <ul>
+        <li>Id: <input ng-model="form.id" readonly placeholder="Auto Number"></li>
+        <li>Name: <input ng-model="form.name"></li>
+        <li>Image: <input ng-model="form.image"></li>
+        <li>Price: <input ng-model="form.price"></li>
+        <li>Category:
+            <select ng-model="form.category.id">
+                <option ng-repeat="c in categories" ng-value="c.id">{{c.name}}</option>
+            </select>
+        </li>
+        <li>Available:
+            <input ng-model="form.available" type="radio" ng-value="true"> Yes
+            <input ng-model="form.available" type="radio" ng-value="false"> No
+        </li>
+        <li>Name: <input ng-model="form.createDate"></li>
+        <li>
+            <button ng-click="create()">Create</button>
+            <button ng-click="update()">Update</button>
+            <button ng-click="delete(form.id)">Delete</button>
+            <button ng-click="reset()">Reset</button>
+        </li>
+    </ul>
+    <table border="1" style="width:100%">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in list">
+                <td>{{$index+1}}</td>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>
+                    <a ng-click="edit(item.id)" href="">Edit</a> |
+                    <a ng-click="delete(item.id)" href="">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>

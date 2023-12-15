@@ -1,0 +1,70 @@
+<main>
+    <h2>Quản lý loại hàng</h2>
+    
+    				<div class="card">
+                	
+                	<div class="card mb-3" >
+					  <div class="row g-0">
+					    <div class="col-md-12">
+					      <div class="card-body">
+					        <form>
+							  
+							  <div class="form-group">
+							    <label for="inputAddress">Id</label>
+							    <input type="text" ng-model="form.id" readonly placeholder="Auto Number" class="form-control" id="inputAddress" placeholder="Price">
+							  </div>
+							  <div class="form-group">
+							    <label for="inputAddress">Name</label>
+							    <input type="text" ng-model="form.name" placeholder="Name" class="form-control" id="inputAddress" placeholder="Price">
+							    <input type="hidden" ng-model="form.photo" >
+							  </div>
+							   
+							    
+							  
+							  
+							  
+							  <button class="btn btn-primary" ng-click="create()">Create</button>
+					            <button class="btn btn-primary" ng-click="update()">Update</button>
+					            <button class="btn btn-primary" ng-click="delete(form.id)">Delete</button>
+					            <button class="btn btn-primary" ng-click="reset()">Reset</button>
+							</form>
+							</div>
+					    </div>
+					  </div>
+					</div>
+                	
+                	</div>
+    
+    <h1 class="h3 mb-2 text-gray-800">Quản lý loại hàng</h1>
+    
+    
+    <div class="card shadow mb-4">
+                        
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+							                <th>No</th>
+							                <th>Id</th>
+							                <th>Name</th>
+							                <th></th>
+							            </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+							            <tr ng-repeat="item in list">
+							                <td>{{$index+1}}</td>
+							                <td>{{item.id}}</td>
+							                <td>{{item.name}}</td>
+							                <td>
+							                    <a ng-click="edit(item.id)" href="">Edit</a> |
+							                    <a ng-click="delete(item.id)" href="">Delete</a>
+							                </td>
+							            </tr>
+							        </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+</main>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+th:replace="~{/admin/shared/layout::dynamic(~{::title},~{::main})}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <title th:fragment="title">Sản phẩm</title>
+</head>
+<body id="page-top">
+
+    
+    	<div th:fragment="main">
+    		<h1 class="h3 mb-2 text-gray-800">Quản lý sản phẩm</h1>
+                	<div class="card">
+                	
+                	<div class="card mb-3" >
+					  <div class="row g-0">
+					    <div class="col-md-4" >
+					      <img th:if="${item.image}" th:src="@{|/assets/img/All/${item.image}|}" width="100%" class="img-fluid rounded-start" alt="...">
+					    </div>
+					    <input type="hidden" ng-model="form.headimage" >
+					    <div class="col-md-8">
+					      <div class="card-body">
+					        <form action="/admin/createPr" method="post" enctype="multipart/form-data">
+							  <div class="form-row">
+							    <div class="form-group col-md-6">
+							      <label for="inputEmail4">Id</label>
+							      <input type="text" class="form-control" id="inputEmail4" th:field="${item.id}"  readonly placeholder="Auto Number">
+							    </div>
+							    <div class="form-group col-md-6">
+							      <label for="inputPassword4">Name</label>
+							      <input ng-model="form.name" type="text" th:field="${item.name}" class="form-control" required placeholder="Name">
+							    </div>
+							  </div>
+							  <div class="form-row">
+							    <div class="form-group col-md-6">
+							      <label for="inputEmail4">NXB</label>
+							      <input type="text" class="form-control" id="inputEmail4" th:field="${item.nxb}" required ng-model="form.nxb"  placeholder="Nhà xuất bản">
+							    </div>
+							    <div class="form-group col-md-6">
+							      <label for="inputPassword4">Tác giả</label>
+							      <input ng-model="form.tg" type="text" class="form-control" th:field="${item.tg}" required placeholder="Tác giả">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label for="inputAddress">Price</label>
+							    <input type="text" ng-model="form.price" class="form-control" id="inputAddress" required th:field="${item.price}" placeholder="Price">
+							  </div>
+							  <div class="mb-3">
+								  <label for="exampleFormControlTextarea1" class="form-label">Giới thiệu</label>
+								  <textarea class="form-control" ng-model="form.gioithieu" id="exampleFormControlTextarea1" required th:field="${item.gioithieu}" rows="3"></textarea>
+								</div>
+							   <div class="form-group">
+							    <label for="inputAddress">Available</label>
+							  <div class="form-check form-check-inline">
+								  <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1"  value="1"  th:field="${item.available}"  >
+								  <label class="form-check-label" for="inlineRadio1">Yes</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0" th:field="${item.available}" >
+								  <label class="form-check-label" for="inlineRadio2">No</label>
+								</div>
+							</div>
+							  <div class="form-row">
+							    <div class="form-group col-md-6">
+							      <label for="inputCity">Create date</label>
+                <input id="createDate" th:field="*{item.createDate}" readonly style="border: 1px solid #000;border-radius: 4px;"/>
+							    	
+							    </div>
+							    <div class="form-group col-md-6">
+							      <label for="inputState">Category</label>
+							      <select id="inputState" th:field="${item.category.id}"  class="form-control">
+							        <option th:each="c, s: ${@categoryService.findAll()}" th:value="${c.id}" th:text="${c.name}"></option>
+							      </select>
+							    </div>
+							     <div class="form-group">
+							    	<label for="inputAddress">Photo</label>
+							   	 <input type="file" name="file" style=" margin-top: 5px;">
+							   	 <input th:field="${item.image}" type="hidden"/>
+							  </div>
+                    
+							  </div>
+							 
+							      
+							  
+							  
+					            <button class="btn btn-primary" >Create</button>
+					            
+					            
+							</form>
+							</div>
+							
+							
+					    </div>
+					  </div>
+					</div>
+                	
+                	</div>    
+				
+                    <!-- DataTales Example -->
+                  
+		</div>
+    
+
+     
+    
+</body>
+
+</html>
